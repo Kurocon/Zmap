@@ -56,8 +56,10 @@ public class Zmap {
 
         String ipAddress = "192.168.178.30";
         String outputFile = "/mnt/nfs_share/res.txt";
-        String command = "sudo zmap -n 1 -N 1 -p 80" + ipAddress + " -o "+outputFile;
+        String command = "zmap -n 1 -N 1 -p 80" + ipAddress + " -o "+outputFile;
+        System.out.println("Executing: "+command);
         String output = obj.executeCommand(command);
+        System.out.println("Command executed. Output:");
         System.out.println(output);
 	}
 
