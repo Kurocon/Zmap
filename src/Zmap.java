@@ -69,18 +69,14 @@ public class Zmap {
     private String executeCommand(String command) {
         System.out.println("Executing: "+command);
         StringBuffer output = new StringBuffer();
-        Process p;
-
-        StringBuilder cmdReturn = new StringBuilder();
         try {
             Process process = Runtime.getRuntime().exec(command);
             try (InputStream inputStream = process.getInputStream()) {
                 int c;
                 while ((c = inputStream.read()) != -1) {
-                    cmdReturn.append((char) c);
+                    output.append((char) c);
                 }
             }
-            System.out.println(cmdReturn.toString());
 
         } catch (IOException ex) {
             Logger.getLogger(Zmap.class.getName())
